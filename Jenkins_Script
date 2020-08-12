@@ -1,0 +1,17 @@
+echo $BUILD_NUMBER
+rm -rf /opt/pivotchain/BUILD/index.html
+echo "removed existing file --> $?"
+cd /var/lib/jenkins/workspace/pivotchai
+cp -rvf index.html /opt/pivotchain/BUILD/
+echo "Copied updated index.html --> $?"
+cd /opt/pivotchain/BUILD/
+docker build -t rjsrisri/ranjeet:$BUILD_NUMBER .
+echo "Image Build --> $?"
+docker push rjsrisri/ranjeet:$BUILD_NUMBER
+echo "Image push --> $?"
+a=`cat  nginx.yaml| grep image | awk -F ":" {'print$3'}`
+echo "$a --> $?"
+sed -i -e s@$a@$BUILD_NUMBER@g nginx.yaml
+echo "Image name updated successfully --> $?"
+kubectl apply -f nginx.yaml
+echo "Hello"
