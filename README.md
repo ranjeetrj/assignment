@@ -1,4 +1,4 @@
-Install Docker By using following commands.
+******************************Install Docker By using following commands*********************
 
 #apt-get install \
     apt-transport-https \
@@ -24,7 +24,9 @@ Install Docker Engine
 #apt-get install docker-ce docker-ce-cli containerd.io
 #apt-get install docker-ce=5:19.03.3~3-0~ubuntu-xenial docker-ce-cli=5:19.03.3~3-0~ubuntu-xenial containerd.io
 
-Creating Kubernetes cluster:
+____________________________________________________________________________________________________________________________________________________________
+
+********************Creating Kubernetes cluster**************************
 
 Add k8s GPG key for installation
 
@@ -63,8 +65,9 @@ The webserver will be available at (IP:30010)
 
 
 Now the kubernetes cluster is ready.
+_________________________________________________________________________________________________________________________________________________________
 
-Installation of Jenkins:
+**********************************Installation of Jenkins*************************
 
 To install jenkins you need java for that use below commands:
 
@@ -102,12 +105,14 @@ Copy .kube directory to jenkins $HOME directory so jenkins user will get kubectl
 Add jenkins user in docker group so jenkins user can use docker command.
 #usermod -aG docker jenkins
 
+___________________________________________________________________________________________________________________________________________________________
 
 For creating docker repo login to docker hub https://hub.docker.com/ and create you repo.
 
 #docker tag nginx:latest rjsrisri/ranjeet:latest
 #docker push rjsrisri/ranjeet:latest
 
+___________________________________________________________________________________________________________________________________________________________
 
 For creating github repo login to https://github.com/
 In your created repo, go to setting and add webhook--> use below url as Payload URL mentioned below
@@ -116,6 +121,8 @@ http://jenkins_ip:port/github-webhook/
 Now if u add anything in index.html it will reflect in http://IP:30010 url
 
 Note: Jenkins project script and Dockerfile attached to this repo.
+
+_________________________________________________________________________________________________________________________________________________________
 
 
 
