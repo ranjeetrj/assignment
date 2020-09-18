@@ -33,6 +33,8 @@ def add_undeploy():
     resp = k8s_apps_v1.delete_namespaced_deployment(name=content['metadata']['name'],namespace=content['metadata']['namespace'])
     print("Deleted deleted. status='%s'" % resp.metadata.name)
     return jsonify(content)
+    
+    
 
 
 app.run()
