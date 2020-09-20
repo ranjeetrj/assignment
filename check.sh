@@ -1,6 +1,6 @@
 #!/bin/bash
-find . -not -path '*/\.*' -type d > abc.txt
-sed -i -e '1d' abc.txt  && sed -i -e 's/^..//' abc.txt
+find . -maxdepth 1 -type d | cut -c 3- > abc.txt
+sed -i -e '1d' abc.txt
 cat abc.txt
 
 while read line
