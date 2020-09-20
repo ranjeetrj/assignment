@@ -15,7 +15,11 @@ then
 echo "Building image-------Found updates in  ${array[i]} folder"
 docker build -t pivotchaindata.com:8443/${array[i]}:v01 .
 echo "Image Build --> $?"
+docker push pivotchaindata.com:8443/${array[i]}:v01 
+
+echo "Image Push --> $?"
 else
 echo "Not Found Any Updates in ${array[i]}"
 fi
 done
+
